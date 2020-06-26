@@ -37,7 +37,7 @@ def collectSubData(subm):
     subStats[sub_id] = subData
 
 sub='mentalhealth'                  #Name of Subreddit
-before="1579910400"                 # 25 Jan 2020  Unix TimeStamp
+before="1579910400"                 # 25 Jan 2020  Unix TimeStamp....... See readme.md to get the Unix timeStamp
 after="1569888000"                  # 1 Oct 2020   Unix TimeStamp
 query=""                            # Keyword--> If u want data which contains a keyword like if u want Baby Yoda in data then query="Baby Yoda"
 subCount=0
