@@ -1,43 +1,3 @@
-'''import requests
-import time
-
-url = "https://api.pushshift.io/reddit/search/submission"
-params = {"subreddit": "mentalhealth"}
-submissions = requests.get(url, params = params)
-print(submissions)
-
-
-def crawl_page(subreddit: "mentalhealth", last_page = None):
-    params={"subreddit":subreddit,"size":500,"sort":"desc",
-            "sort_type":"created_utc"}
-    if last_page is not None:
-        if len(last_page)>0:
-            params["before"]= last_page[-1]["created_utc"]
-        else:
-            return []
-    results= requests.get(url,params)
-    if not results.ok:
-        raise Exception("Server returned status code {}".fromat(results.status_code))
-    return resutls.json()["data"]
-
-
-def crawl_subreddit(subreddit, max_submissions = 2000):
-  
-  submissions = []
-  last_page = None
-  while last_page != [] and len(submissions) < max_submissions:
-    last_page = crawl_page(subreddit, last_page)
-    submissions += last_page
-    time.sleep(3)
-  return submissions[:max_submissions]
-sub=requests.get(url, params = {"subreddit": "mentalhealth", "size": 0, "aggs" : "subreddit"}).json()["aggs"]
-print(sub)
-'''
-
-
-
-
-
 import pandas as pd
 import requests
 import json
@@ -76,10 +36,10 @@ def collectSubData(subm):
     subData.append((sub_id,title,content,url,author,score,created,numComms,permalink,flair))
     subStats[sub_id] = subData
 
-sub='mentalhealth'
-before="1579910400"
-after="1569888000"
-query=""
+sub='mentalhealth'                  #Name of Subreddit
+before="1579910400"                 # 25 Jan 2020  Unix TimeStamp
+after="1569888000"                  # 1 Oct 2020   Unix TimeStamp
+query=""                            # Keyword--> If u want data which contains a keyword like if u want Baby Yoda in data then query="Baby Yoda"
 subCount=0
 subStats ={}
 
@@ -100,7 +60,7 @@ print(len(data))
 
 def updateSubs_file():
     upload_count = 0
-    location = r"C:\Users\Gokul\Desktop\Gokucs\IIC"
+    location = r""    #Path to save the csv file
     print("input filename of submission file, please add .csv")
     filename = input()
     file = location + filename
