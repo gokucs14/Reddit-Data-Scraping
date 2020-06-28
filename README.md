@@ -1,8 +1,8 @@
 ## Reddit-Data-Scraping
 
-reddit.py uses PRAW API which only gives you ~1000 results.
+redditusing_praw.py uses PRAW API which only gives you ~1000 results.
 
-redd.py uses pushshift api which can scrape the whole subreddit.
+reddit.py uses pushshift api which can scrape the whole subreddit.
 
 Just make sure you don't much load to api just keep the difference between the before and after time short like 4-5 months.
 
