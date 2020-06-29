@@ -63,7 +63,7 @@ def updateSubs_file():
     location = r""    #Path to save the csv file
     print("input filename of submission file, please add .csv")
     filename = input()
-    file = location + filename
+    file = location+"\"+ filename
     with open(file, 'w', newline='', encoding='utf-8') as file: 
         a = csv.writer(file, delimiter=',')
         headers = ["Post ID","Title","Content","Url","Author","Score","Publish Date","Total No. of Comments","Permalink","Flair"]
